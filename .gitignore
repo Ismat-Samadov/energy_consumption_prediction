@@ -1,0 +1,65 @@
+# Claude Code
+.claude
+
+# Python virtual environment
+.venv
+venv
+env/
+
+# Data files (downloaded automatically from Kaggle)
+*.csv
+data/
+
+# Charts (generated during analysis)
+charts/
+*.png
+*.jpg
+*.jpeg
+
+# Model files
+*.pkl
+*.h5
+*.joblib
+*.model
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
