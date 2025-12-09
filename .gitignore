@@ -7,7 +7,6 @@ venv
 env/
 
 # Data files (downloaded automatically from Kaggle)
-*.csv
 data/
 
 # Charts (generated during analysis) - KEEP CHARTS FOR GITHUB
