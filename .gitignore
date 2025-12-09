@@ -10,11 +10,13 @@ env/
 *.csv
 data/
 
-# Charts (generated during analysis)
-charts/
-*.png
-*.jpg
-*.jpeg
+# Charts (generated during analysis) - KEEP CHARTS FOR GITHUB
+# Note: Charts should be committed to show in README
+# charts/
+# Exclude individual image formats only if needed
+# *.png
+# *.jpg
+# *.jpeg
 
 # Model files
 *.pkl
