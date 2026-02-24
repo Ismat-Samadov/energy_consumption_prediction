@@ -710,7 +710,7 @@ This project uses the Apache 2.0 License (matching the dataset license).
 
 ---
 
-*Last Updated: December 2024*
-*Analysis Notebook: `energy_prediction_analysis.ipynb`*
-*Model Results: `model_comparison_results.csv`*
-*Charts: `charts/` directory (16 visualizations)*
+- *Last Updated: December 2024*
+- *Analysis Notebook: `energy_prediction_analysis.ipynb`*
+- *Model Results: `model_comparison_results.csv`*
+- *Charts: `charts/` directory (16 visualizations)*
