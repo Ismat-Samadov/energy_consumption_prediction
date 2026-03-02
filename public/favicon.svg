@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Card background -->
+  <rect width="64" height="64" rx="10" fill="#1a6b3a"/>
+  <!-- Card face -->
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="#fffef8"/>
+  <!-- Top-left rank -->
+  <text x="9" y="20" font-family="Georgia,serif" font-size="13" font-weight="900" fill="#1a1a2e">A</text>
+  <text x="10" y="30" font-family="Georgia,serif" font-size="10" fill="#1a1a2e">♠</text>
+  <!-- Center spade -->
+  <text x="32" y="46" text-anchor="middle" font-family="Georgia,serif" font-size="28" fill="#1a1a2e">♠</text>
+  <!-- Bottom-right rank (rotated) -->
+  <text x="55" y="44" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="900" fill="#1a1a2e" transform="rotate(180 55 44)">A</text>
+</svg>

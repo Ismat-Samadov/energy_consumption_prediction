@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100dvh;
+  background:
+    radial-gradient(ellipse 140% 90% at 50% -10%, #2d9e5f 0%, #1a7040 35%, #0f4d2a 70%, #092d18 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+/* Felt dot texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1px, transparent 1px);
+  background-size: 6px 6px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── CARD FACE ─────────────────────────────────────────────────────────────── */
+.card-face {
+  background: linear-gradient(155deg, #ffffff 0%, #faf8f2 100%);
+  border-radius: clamp(6px, 1vw, 10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.2),
+    0 4px 12px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.12s ease, transform 0.12s ease;
+  cursor: grab;
+}
+
+.card-face:active { cursor: grabbing; }
+
+/* Glass sheen */
+.card-face::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 42%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%);
+  border-radius: clamp(6px, 1vw, 10px) clamp(6px, 1vw, 10px) 60% 60%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.card-face:hover {
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.22),
+    0 8px 24px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  transform: translateY(-3px);
+}
+
+/* Selected state */
+.card-selected {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 2px #fbbf24,
+    0 6px 20px rgba(251,191,36,0.45),
+    0 2px 6px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+}
+
+/* ── CARD BACK ─────────────────────────────────────────────────────────────── */
+.card-back {
+  border-radius: clamp(6px, 1vw, 10px);
+  background: #1b3d7a;
+  border: 2px solid #3060b8;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.25),
+    0 4px 12px rgba(0,0,0,0.2),
+    inset 0 0 0 5px rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner frame */
+.card-back::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background:
+    repeating-linear-gradient( 45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1.5px, transparent 1.5px, transparent 6px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1.5px, transparent 1.5px, transparent 6px);
+}
+
+/* Center ornament */
+.card-back::after {
+  content: '♦';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(16px, 3vw, 28px);
+  color: rgba(100,150,255,0.2);
+}
+
+/* ── PILE SLOTS ────────────────────────────────────────────────────────────── */
+.pile-slot {
+  border-radius: clamp(6px, 1vw, 10px);
+  border: 2px dashed rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.12);
+  aspect-ratio: 2.5 / 3.5;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.pile-slot-over {
+  border-color: #fbbf24 !important;
+  background: rgba(251,191,36,0.1) !important;
+  box-shadow: 0 0 22px rgba(251,191,36,0.35) !important;
+}
+
+/* ── ANIMATIONS ────────────────────────────────────────────────────────────── */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(50px) scale(0.86); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% center; }
+  to   { background-position: -200% center; }
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(-10px) rotate(0deg)   scale(1);   opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg) scale(0.5); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(251,191,36,0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(251,191,36,0);   }
+}
+
+.win-card  { animation: floatIn 0.55s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.btn-shimmer {
+  background: linear-gradient(90deg, #f5c842, #fde68a, #f5c842);
+  background-size: 200% auto;
+  animation: shimmer 2.2s linear infinite;
+}
+
+.confetti {
+  position: fixed;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  z-index: 200;
+  animation: confettiFall linear forwards;
+}
+
+/* ── SCROLLBAR ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
